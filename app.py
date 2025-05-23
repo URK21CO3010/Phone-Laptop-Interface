@@ -11,7 +11,7 @@ latest_message = {
     "text": "—null"
 }
 
-@app.route("/send", methods=["POST", "GET"])
+@app.route("/send", methods=["POST"])
 def receive():
     global latest_message
     data = request.get_json()
@@ -27,7 +27,7 @@ def receive():
 
     return jsonify({"status": "received", "data": latest_message})
 
-@app.route("/latest", methods=["POST", "GET"])
+@app.route("/latest", methods=["GET"])
 def get_latest():
     return jsonify(latest_message)
 
